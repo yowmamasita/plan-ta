@@ -3,9 +3,16 @@
     "type": "project",
     "authors": [
         {
-            "name": "Ben Adrian Sarmiento",
-            "email": "benadriansarmiento@gmail.com"
+            "name": "Ben Sarmiento",
+            "email": "me@bensarmiento.com"
         }
     ],
-    "require": {}
+    "autoload": {
+        "psr-4": {
+            "Pilmico\\": "src/"
+        }
+    },
+    "require": {
+        "hoa/ruler": "~2.0"
+    }
 }
