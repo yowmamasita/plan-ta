@@ -6,7 +6,7 @@
 namespace Pilmico\Service;
 
 
-interface ProductServiceInterface
+interface ProductService
 {
     /**
      * @return array

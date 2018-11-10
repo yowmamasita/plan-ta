@@ -8,7 +8,7 @@ namespace Pilmico\Service;
 
 use Pilmico\Model\OrderList;
 
-interface OrderListServiceInterface
+interface OrderListService
 {
     /**
      * @return OrderList

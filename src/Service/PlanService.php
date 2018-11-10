@@ -7,7 +7,7 @@ namespace Pilmico\Service;
 
 use Pilmico\Model\Plan;
 
-interface PlanServiceInterface
+interface PlanService
 {
     /**
      * @param Plan $plan
