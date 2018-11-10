@@ -1,0 +1,11 @@
+{
+    "name": "yowmamasita/pilmico",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Ben Adrian Sarmiento",
+            "email": "benadriansarmiento@gmail.com"
+        }
+    ],
+    "require": {}
+}
