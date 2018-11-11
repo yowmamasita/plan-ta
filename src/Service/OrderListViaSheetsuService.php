@@ -2,6 +2,7 @@
 
 namespace Pilmico\Service;
 
+use Pilmico\Model\Order;
 use Pilmico\Model\OrderList;
 
 /**
@@ -11,18 +12,35 @@ final class OrderListViaSheetsuService implements OrderListService
 {
     private $sheetsuUrl = "https://sheetsu.com/apis/v1.0bu/51a58af92c33";
 
-    public function getAllOrders()
+    /**
+     * @param bool $unfulfilled
+     * @return OrderList
+     */
+    public function getAllOrders($unfulfilled = false)
     {
         $result = $this->callSheetsu("GET");
-        return $result;
+        $orders = new OrderList($result);
+        return $orders;
     }
 
-    public function getAllOrdersBySku($sku)
+    /**
+     * @param string $sku
+     * @param bool $unfulfilled
+     * @return OrderList
+     */
+    public function getAllOrdersBySku($sku, $unfulfilled = false)
     {
         $result = $this->callSheetsu("GET", "search", ["sku" => $sku]);
-        return $result;
+        $orders = new OrderList($result);
+        return $orders;
     }
 
+    /**
+     * @param $method
+     * @param string $path
+     * @param bool $data
+     * @return mixed
+     */
     public function callSheetsu($method, $path = "", $data = false)
     {
         $curl = curl_init();
