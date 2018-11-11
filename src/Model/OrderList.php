@@ -21,6 +21,14 @@ final class OrderList
     }
 
     /**
+     * @return array
+     */
+    public function getOrders()
+    {
+        return $this->orders;
+    }
+
+    /**
      * @param Order $order
      */
     public function addOrder(Order $order)
