@@ -9,13 +9,54 @@ use Pilmico\Model\OrderList;
  */
 final class OrderListViaSheetsuService implements OrderListService
 {
-    public function getAllOrders($unfulfilled = false)
+    private $sheetsuUrl = "https://sheetsu.com/apis/v1.0bu/51a58af92c33";
+
+    public function getAllOrders()
     {
-        // TODO: Implement getAllOrders() method.
+        $result = $this->callSheetsu("GET");
+        return $result;
     }
 
-    public function getAllOrdersBySku($sku, $unfulfilled = false)
+    public function getAllOrdersBySku($sku)
     {
-        // TODO: Implement getAllOrdersBySku() method.
+        $result = $this->callSheetsu("GET", "search", ["sku" => $sku]);
+        return $result;
+    }
+
+    public function callSheetsu($method, $path = "", $data = false)
+    {
+        $curl = curl_init();
+
+        $url = $this->sheetsuUrl;
+
+        if($path)
+        {
+            $url .= $this->sheetsuUrl . "/" . $path;
+        }
+
+        switch ($method)
+        {
+            case "POST":
+                curl_setopt($curl, CURLOPT_POST, 1);
+
+                if ($data)
+                    curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+                break;
+            case "PUT":
+                curl_setopt($curl, CURLOPT_PUT, 1);
+                break;
+            default:
+                if ($data)
+                    $url = sprintf("%s?%s", $url, http_build_query($data));
+        }
+
+        curl_setopt($curl, CURLOPT_URL, $url);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+
+        $result = curl_exec($curl);
+
+        curl_close($curl);
+
+        return json_decode($result);
     }
 }
