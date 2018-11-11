@@ -13,11 +13,18 @@ final class Plant
     private $name;
 
     /**
-     * @param string $name
+     * @var array
      */
-    public function __construct($name)
+    private $mills;
+
+    /**
+     * @param string $name
+     * @param array $mills
+     */
+    public function __construct($name, array $mills)
     {
         $this->name = $name;
+        $this->mills = $mills;
     }
 
     /**
@@ -34,5 +41,21 @@ final class Plant
     public function setName($name)
     {
         $this->name = $name;
+    }
+
+    /**
+     * @return array
+     */
+    public function getMills()
+    {
+        return $this->mills;
+    }
+
+    /**
+     * @param array $mills
+     */
+    public function setMills($mills)
+    {
+        $this->mills = $mills;
     }
 }

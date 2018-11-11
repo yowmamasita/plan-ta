@@ -23,4 +23,17 @@ final class OrdersUtil
             return ($volumeA < $volumeB) ? -1 : 1;
         });
     }
+
+    /**
+     * @param array $orders
+     */
+    public static function sortOrdersByScore(array &$orders)
+    {
+        usort($orders, function (Order $orderA, Order $orderB) {
+            if ($orderA->getScore() == $orderB->getScore()) {
+                return 0;
+            }
+            return ($orderA->getScore() < $orderB->getScore()) ? -1 : 1;
+        });
+    }
 }

@@ -7,7 +7,7 @@ use DomainException;
 /**
  * @author Ben Sarmiento <me@bensarmiento.com>
  *
- * @method static FeedType GAMEFOWL
+ * @method static FeedType GAME_FOWL
  * @method static FeedType POULTRY
  * @method static FeedType SWINE
  */

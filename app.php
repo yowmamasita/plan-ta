@@ -3,4 +3,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 use Pilmico\App;
 
-(new App)->run();
+$container = new Pimple\Container;
+$container[\Pilmico\Service\OrderListService::class] = new \Pilmico\Service\OrderListViaSheetsuService;
+
+(new App)->run($container);

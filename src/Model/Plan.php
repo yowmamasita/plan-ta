@@ -8,15 +8,38 @@ namespace Pilmico\Model;
 final class Plan
 {
     /**
+     * @var Feedmill
+     */
+    private $feedmill;
+
+    /**
      * @var array
      */
     private $steps;
 
     /**
+     * @param Feedmill $feedmill
      */
-    public function __construct()
+    public function __construct(Feedmill $feedmill)
     {
+        $this->feedmill = $feedmill;
         $this->steps = [];
+    }
+
+    /**
+     * @return Feedmill
+     */
+    public function getFeedmill()
+    {
+        return $this->feedmill;
+    }
+
+    /**
+     * @param Feedmill $feedmill
+     */
+    public function setFeedmill($feedmill)
+    {
+        $this->feedmill = $feedmill;
     }
 
     /**

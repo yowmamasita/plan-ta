@@ -9,12 +9,12 @@ use Pilmico\Model\OrderList;
  */
 final class OrderListViaSheetsuService implements OrderListService
 {
-    public function getAllOrders()
+    public function getAllOrders($unfulfilled = false)
     {
         // TODO: Implement getAllOrders() method.
     }
 
-    public function getAllOrdersBySku($sku)
+    public function getAllOrdersBySku($sku, $unfulfilled = false)
     {
         // TODO: Implement getAllOrdersBySku() method.
     }

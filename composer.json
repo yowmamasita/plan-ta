@@ -13,6 +13,7 @@
         }
     },
     "require": {
-        "hoa/ruler": "~2.0"
+        "hoa/ruler": "~2.0",
+        "pimple/pimple": "^3.2"
     }
 }
